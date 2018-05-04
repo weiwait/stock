@@ -11,7 +11,6 @@ use Weiwait\HighOpen;
 
 include_once 'vendor/autoload.php';
 
-
 new db\DatabaseManager\DatabaseManager();
 
 //$highOpen = new HighOpen();

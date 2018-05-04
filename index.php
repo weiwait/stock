@@ -6,6 +6,10 @@
  * Time: 9:21
  */
 
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 use Weiwait\PQuery;
 
 include_once 'vendor/autoload.php';
@@ -13,8 +17,10 @@ include_once 'vendor/autoload.php';
 
 new db\DatabaseManager\DatabaseManager();
 $phpQuery = new PQuery();
+die('hello world');
 //echo new \Weiwait\PQuery('index');
 //$phpQuery->stockCode('http://quote.eastmoney.com/stocklist.html');
+
 
 /**
  * @param $phpQuery PQuery
