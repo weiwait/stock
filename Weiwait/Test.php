@@ -13,9 +13,14 @@ use db\StockMarket;
 
 class Test
 {
-    public function test()
+    public function test($code)
     {
-        $stocks = StockMarket::allRecordOfStock('000002', 2017, 2017);
+        ob_start();
+        $stocks = StockMarket::allRecordOfStock($code, 2017, 2018);
+
+        if (!$stocks) {
+            return 0;
+        }
 
         $length = count($stocks);
         $day = 1;
@@ -153,6 +158,9 @@ class Test
         echo "<br>";
         echo "盈利率<br>";
         echo $profit / 100 . "%";
+        ob_clean();
+        ob_end_clean();
+        return $profit;
     }
 
 

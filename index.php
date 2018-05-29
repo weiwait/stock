@@ -17,7 +17,6 @@ include_once 'vendor/autoload.php';
 
 new db\DatabaseManager\DatabaseManager();
 $phpQuery = new PQuery();
-die('hello world');
 //echo new \Weiwait\PQuery('index');
 //$phpQuery->stockCode('http://quote.eastmoney.com/stocklist.html');
 

@@ -154,7 +154,7 @@ class PQuery
 
     public function pickUpStock()
     {
-        $year = 2017;
+        $year = 2018;
 //        $year = date('Y');
 //        $month = date('m');
 //        $lastYear = $year - 1;
@@ -183,7 +183,7 @@ class PQuery
         foreach ($stockCodes as $where => $item) {
 //            $urls = [];
             if (!$done) {
-                $crawlerCycle = StockCrawlerCycle::query()->find(7)->toArray();
+                $crawlerCycle = StockCrawlerCycle::query()->find(1)->toArray();
                 if ($crawlerCycle['ephemeral_data']) {
                     $done = json_decode($crawlerCycle['ephemeral_data'], true);
                     if (in_array($item, $done)) {
@@ -236,7 +236,7 @@ class PQuery
             $ephemeral = [
                 'ephemeral_data' => json_encode($done)
             ];
-            StockCrawlerCycle::query()->where(['id' => 7])->update($ephemeral);
+            StockCrawlerCycle::query()->where(['id' => 1])->update($ephemeral);
             print_r("{$where}<>{$item}\t");
             sleep(3.3);
 //            for ($i = $lastYearQuarter; $i > $currentQuarter; $i--) {
