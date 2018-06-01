@@ -200,7 +200,7 @@ class Daily
                     'transaction_amount' => $value[6],
                 ];
 
-                if ($data['date'] != date('Y-m-d')) {
+                if (date('md', strtotime($data['date'])) != $crawlerCycle['year']) {
                     continue;
                 }
 
