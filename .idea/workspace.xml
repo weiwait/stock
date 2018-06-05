@@ -18,28 +18,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PQuery.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weiwait/PQuery.php">
+      <file leaf-file-name="daily.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/daily.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1537">
-              <caret line="157" selection-start-line="157" selection-end-line="173" selection-end-column="11" />
+            <state relative-caret-position="345">
+              <caret line="141" column="41" selection-start-line="141" selection-start-column="41" selection-end-line="141" selection-end-column="41" />
               <folding>
-                <element signature="e#1582#2710#0#PHP" />
-                <element signature="e#2716#3610#0#PHP" />
-                <element signature="e#3691#5492#0#PHP" />
+                <element signature="e#111#150#0#PHP" expanded="true" />
+                <element signature="e#3679#5484#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="daily.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/daily.php">
+      <file leaf-file-name="proxy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proxy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="202" column="75" selection-start-line="202" selection-start-column="75" selection-end-line="202" selection-end-column="75" />
-              <folding>
-                <element signature="e#111#150#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="-6220">
+              <caret column="429" lean-forward="true" selection-start-column="411" selection-end-column="429" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="529.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/529.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -80,15 +85,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weiwait/Test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="StockMarket.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/StockMarket.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -107,18 +103,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rule.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Rule.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="3" selection-start-column="3" selection-end-column="3" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -133,6 +117,7 @@
       <find>windows</find>
       <find>curl.c</find>
       <find>die</find>
+      <find>$this-&gt;$property</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,6 +151,8 @@
         <option value="$PROJECT_DIR$/Weiwait/Test.php" />
         <option value="$PROJECT_DIR$/Weiwait/PQuery.php" />
         <option value="$PROJECT_DIR$/db/StockMarket.php" />
+        <option value="$PROJECT_DIR$/529.php" />
+        <option value="$PROJECT_DIR$/proxy" />
         <option value="$PROJECT_DIR$/daily.php" />
       </list>
     </option>
@@ -247,11 +234,12 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.PHP" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\weiwait\Desktop\stock" />
+      <recent name="C:\Users\weiwait\Desktop\queryList\db" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\weiwait\Desktop\queryList" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\weiwait\Desktop\queryList\db" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -323,12 +311,14 @@
       <workItem from="1527469855536" duration="116000" />
       <workItem from="1527479266345" duration="6548000" />
       <workItem from="1527557156548" duration="13166000" />
-      <workItem from="1527816448303" duration="331000" />
+      <workItem from="1527816448303" duration="9400000" />
+      <workItem from="1528160476951" duration="399000" />
+      <workItem from="1528166129815" duration="8067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189089000" />
+    <option name="totallyTimeSpent" value="206624000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -343,15 +333,15 @@
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.287024" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1480959" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50070524" side_tool="true" weight="0.46675712" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32884097" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4992948" weight="0.46540028" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39864865" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39864865" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
@@ -372,10 +362,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/jaeger/querylist/composer.json" />
-    <entry file="file://$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" />
-    <entry file="file://$PROJECT_DIR$/../php_environment/php.ini" />
-    <entry file="file://$PROJECT_DIR$/vendor/jaeger/querylist/src/Dom/Elements.php" />
     <entry file="file://$PROJECT_DIR$/vendor/jaeger/querylist/src/Config.php" />
     <entry file="file://$PROJECT_DIR$/../spider/Monitor/Spider.php" />
     <entry file="file://$PROJECT_DIR$/vendor/jaeger/querylist-curl-multi/CurlMulti.php" />
@@ -430,7 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/jaeger/querylist/src/QueryList.php" />
     <entry file="file://$PROJECT_DIR$/vendor/jaeger/querylist/src/Services/HttpService.php" />
     <entry file="file://$PROJECT_DIR$/vendor/jaeger/g-http/src/GHttp.php" />
     <entry file="file://$PROJECT_DIR$/db/migrations/20180116092636_stock_market_migration.php">
@@ -540,13 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/illuminate/database/Query/Builder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-372">
-          <caret line="2112" column="20" selection-start-line="2112" selection-start-column="20" selection-end-line="2112" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -603,6 +581,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/illuminate/database/Query/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3103">
+          <caret line="1505" selection-start-line="1505" selection-end-line="1506" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -610,12 +595,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/jaeger/querylist/src/QueryList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-734">
+          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/529.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/psr/http-message/src/StreamInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6220">
+          <caret column="429" lean-forward="true" selection-start-column="411" selection-end-column="429" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/daily.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="202" column="75" selection-start-line="202" selection-start-column="75" selection-end-line="202" selection-end-column="75" />
+        <state relative-caret-position="345">
+          <caret line="141" column="41" selection-start-line="141" selection-start-column="41" selection-end-line="141" selection-end-column="41" />
           <folding>
             <element signature="e#111#150#0#PHP" expanded="true" />
+            <element signature="e#3679#5484#0#PHP" />
           </folding>
         </state>
       </provider>

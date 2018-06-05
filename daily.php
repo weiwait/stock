@@ -13,6 +13,8 @@ use db\DatabaseManager\DatabaseManager;
 use db\Stock;
 use db\StockCrawlerCycle;
 use db\StockMarket;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Database\Capsule\Manager;
 use QL\Ext\CurlMulti;
 use QL\QueryList;
@@ -26,6 +28,7 @@ class Daily
     private $end = '';
     private $data = [];
     private $stockCodes = [];
+    private $counter = 0;
 
     public function __construct()
     {
@@ -76,9 +79,51 @@ class Daily
 //        }
     }
 
+    private function getProxy()
+    {
+        if (file_exists('proxy')) {
+            $data = json_decode(file_get_contents('proxy'), true);
+            if ($data['date'] === date('Y-m-d')) {
+                $data['where'] += 1;
+                file_put_contents('proxy', json_encode($data));
+                return $data['proxy'][$data['where']]['ip:port'];
+            }
+        }
+
+        $guzzle = new Client();
+        $proxy = $guzzle->get('http://proxy.mimvp.com/api/fetch.php?orderid=860151130155752298&num=5000&ping_time=0.3&transfer_time=1&result_fields=1,2&http_type=1,2&result_format=json')->getBody()->getContents();
+        $proxy = json_decode($proxy, true);
+
+        $data = [
+            'date' => date('Y-m-d'),
+            'proxy' => $proxy['result'],
+            'where' => 0
+        ];
+
+        file_put_contents('proxy', json_encode($data));
+        return $proxy['result'][0]['ip:port'];
+    }
+
+    private function getHtml($url)
+    {
+        if ($this->counter > 5) {
+            return '';
+        }
+        $guzzle = new Client();
+        try {
+            $this->counter++;
+            return $guzzle->request('GET', $url, ['proxy' => $this->getProxy()])->getBody()->getContents();
+        } catch (GuzzleException $e) {
+            return $this->getHtml($url);
+        }
+
+
+    }
+
     public function single($url)
     {
         $pQuery = new QueryList();
+        $guzzle = new Client();
         $rules = [
             'quarter' => ['#FundHoldSharesTable', 'html', '', function ($match) {
                 try {
@@ -94,7 +139,9 @@ class Daily
         ];
 
         try {
-            $data = $pQuery->get($url)->rules($rules)->query()->getData()->toArray();
+            $this->counter = 0;
+            $html = $this->getHtml($url);
+            $data = $pQuery->html($html)->rules($rules)->query()->getData()->toArray();
             $pQuery->destruct();
         } catch (Exception $exception) {
             $data = [];
@@ -205,15 +252,12 @@ class Daily
                 }
 
                 Manager::table("stock_markets_{$year}")->insert($data);
-
-                sleep(2.2);
             }
             $done[] = $item;
             $ephemeral = [
                 'ephemeral_data' => json_encode($done)
             ];
                 StockCrawlerCycle::query()->where(['id' => $crawlerCycleId])->update($ephemeral);
-            sleep(3.3);
         }
     }
 }
@@ -236,7 +280,6 @@ function again($phpQuery){
         $phpQuery->pickUpStock();
     } catch (Exception $exception) {
         file_put_contents(__DIR__ . '/log', $exception, FILE_APPEND);
-        sleep(333);
         again($phpQuery);
     }
 }
