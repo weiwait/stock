@@ -13,7 +13,10 @@ use db\DatabaseManager\DatabaseManager;
 use db\Stock;
 use db\StockCrawlerCycle;
 use db\StockMarket;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Capsule\Manager;
 use QL\Ext\CurlMulti;
 use QL\QueryList;
 use Symfony\Component\Config\Definition\Exception\Exception;
@@ -26,6 +29,7 @@ class PQuery
     private $end = '';
     private $data = [];
     private $stockCodes = [];
+    private $counter;
 
     public function __construct()
     {
@@ -33,16 +37,6 @@ class PQuery
         ini_set('memory_limit', '2048M');
 
         $this->start = microtime(true);
-//        $this->urls = [
-//            "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/000631.phtml?year=2018&jidu=1",
-//            "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/000631.phtml?year=2017&jidu=1",
-//            "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/000631.phtml?year=2017&jidu=2",
-//            "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/000631.phtml?year=2017&jidu=3",
-//            "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/000631.phtml?year=2017&jidu=4",
-//        ];
-//        $this->stockCode('http://quote.eastmoney.com/stocklist.html');
-//        $this->response = $this->$execute();
-//         = is_array($data) ? json_encode($data) : $data;
     }
 
     public function __toString()
@@ -76,6 +70,66 @@ class PQuery
 //        }
     }
 
+
+    private function getProxy()
+    {
+        if (file_exists('proxy')) {
+            $data = json_decode(file_get_contents('proxy'), true);
+            if ($data['date'] === date('Y-m-d')) {
+                if (empty($data['proxy'][$data['where']+1]['ip:port'])) {
+                    $data['where'] = 0;
+                } else {
+                    $data['where'] += 1;
+                }
+                file_put_contents('proxy', json_encode($data));
+                return $data['proxy'][$data['where']]['ip:port'];
+            }
+        }
+
+        $guzzle = new Client();
+        $proxy = $guzzle->get('http://proxy.mimvp.com/api/fetch.php?orderid=860151130155752298&num=5000&ping_time=0.3&transfer_time=1&result_fields=1,2&http_type=1,2&result_format=json')->getBody()->getContents();
+        $proxy = json_decode($proxy, true);
+
+        foreach ($proxy['result'] as $key => $item) {
+            try {
+                $guzzle->request('GET', 'http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/000911.phtml?year=2018&jidu=2', ['proxy' => $item['ip:port'], 'timeout' => 1, 'allow_redirects' => false]);
+            } catch (\Exception $exception) {
+                unset($proxy['result'][$key]);
+            } catch (GuzzleException $e) {
+                unset($proxy['result'][$key]);
+            }
+        }
+
+        sort($proxy['result']);
+
+        $data = [
+            'date' => date('Y-m-d'),
+            'proxy' => $proxy['result'],
+            'where' => 0
+        ];
+
+        file_put_contents('proxy', json_encode($data));
+        return $proxy['result'][0]['ip:port'];
+    }
+
+    private function getHtml($url)
+    {
+        $guzzle = new Client();
+        $pQuery = new QueryList();
+        try {
+            $html = $guzzle->request('GET', $url, ['proxy' => $this->getProxy(), 'timeout' => 3, 'allow_redirects' => false])->getBody()->getContents();
+            if (!empty($html) || $pQuery->html(\phpQuery::newDocument($html))->find('#FundHoldSharesTable')) {
+                return $html;
+            } else {
+                return $this->getHtml($url);
+            }
+        } catch (GuzzleException $e) {
+            return $this->getHtml($url);
+        }
+
+
+    }
+
     public function single($url)
     {
         $pQuery = new QueryList();
@@ -94,7 +148,8 @@ class PQuery
         ];
 
         try {
-            $data = $pQuery->get($url)->rules($rules)->query()->getData()->toArray();
+            $html = $this->getHtml($url);
+            $data = $pQuery->html($html)->rules($rules)->query()->getData()->toArray();
             $pQuery->destruct();
         } catch (Exception $exception) {
             $data = [];
@@ -155,30 +210,14 @@ class PQuery
     public function pickUpStock()
     {
         $year = 2018;
-//        $year = date('Y');
-//        $month = date('m');
-//        $lastYear = $year - 1;
-//        $quotient = 12 / $month;
-//        if ($quotient > 3) {
-//            $currentQuarter = 1;
-//            $lastYearQuarter = 4;
-//        } else if ($quotient > 1.7) {
-//            $currentQuarter = 2;
-//            $lastYearQuarter = 3;
-//        } else if ($quotient > 1.2) {
-//            $currentQuarter = 2;
-//            $lastYearQuarter = 1;
-//        } else {
-//            $currentQuarter = 4;
-//            $lastYearQuarter = 1;
-//        }
-
+        $season = ceil((date('n'))/3);
 
         $stockCodes = Stock::query()->select(['code'])->get()->toArray();
         $stockCodes = array_column($stockCodes, 'code');
-        $codes = StockMarket::query()->select(['stock_code'])->get()->toArray();
-        $codes = array_column($codes, 'stock_code');
-        $stockCodes = array_diff($stockCodes, $codes);
+//        $codes = StockMarket::query()->select(['stock_code'])->get()->toArray();
+//        $codes = array_column($codes, 'stock_code');
+//        $stockCodes = array_diff($stockCodes, $codes);
+//        print_r($stockCodes);die;
         $done = [];
         foreach ($stockCodes as $where => $item) {
 //            $urls = [];
@@ -195,10 +234,10 @@ class PQuery
                     continue;
                 }
             }
-            for ($i = 4; $i > 0; $i--) {
+            for ($i = $season; $i > 0; $i--) {
                 $url = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/{$item}.phtml?year={$year}&jidu={$i}";
                 $data = $this->single($url);
-                if ($data) {
+                if (!empty($data)) {
                     $data = array_chunk($data, 7);
                     asort($data);
                     foreach ($data as $key => $value) {
@@ -215,9 +254,10 @@ class PQuery
                             'transaction_amount' => $value[6],
                         ];
                     }
-                    $result = StockMarket::query()->insert($data);
+//                    $result = StockMarket::query()->insert($data);
+                    $result = Manager::table("stock_markets_{$year}")->insert($data);
                     if (!$result) {
-                        file_put_contents(__DIR__ . '/log', "code: {$item}, quarter: {$i}\r", FILE_APPEND);
+                        file_put_contents(__DIR__ . '/insert', "code: {$item}, quarter: {$i}\r", FILE_APPEND);
                     }
                 } else {
                     if (file_exists(__DIR__ . '/empty')) {
@@ -230,7 +270,6 @@ class PQuery
                     $empty = json_encode($empty);
                     file_put_contents(__DIR__ . '/empty', $empty);
                 }
-                sleep(2.2);
             }
             $done[] = $item;
             $ephemeral = [
@@ -238,11 +277,6 @@ class PQuery
             ];
             StockCrawlerCycle::query()->where(['id' => 1])->update($ephemeral);
             print_r("{$where}<>{$item}\t");
-            sleep(3.3);
-//            for ($i = $lastYearQuarter; $i > $currentQuarter; $i--) {
-//                $urls[] = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/{$item['code']}.phtml?year={$lastYear}&jidu={$i}";
-//            }
-//            $data = $this->multiple($urls);
         }
     }
 }

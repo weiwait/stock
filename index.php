@@ -29,7 +29,6 @@ function again($phpQuery){
         $phpQuery->pickUpStock();
     } catch (Exception $exception) {
         file_put_contents(__DIR__ . '/log', $exception, FILE_APPEND);
-        sleep(333);
         again($phpQuery);
     }
 }

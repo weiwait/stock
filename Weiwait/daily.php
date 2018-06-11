@@ -29,6 +29,7 @@ class Daily
     private $data = [];
     private $stockCodes = [];
     private $counter = 0;
+    private $test = false;
 
     public function __construct()
     {
@@ -84,7 +85,11 @@ class Daily
         if (file_exists('proxy')) {
             $data = json_decode(file_get_contents('proxy'), true);
             if ($data['date'] === date('Y-m-d')) {
-                $data['where'] += 1;
+                if (empty($data['proxy'][$data['where']+1]['ip:port'])) {
+                    $data['where'] = 0;
+                } else {
+                    $data['where'] += 1;
+                }
                 file_put_contents('proxy', json_encode($data));
                 return $data['proxy'][$data['where']]['ip:port'];
             }
@@ -93,6 +98,18 @@ class Daily
         $guzzle = new Client();
         $proxy = $guzzle->get('http://proxy.mimvp.com/api/fetch.php?orderid=860151130155752298&num=5000&ping_time=0.3&transfer_time=1&result_fields=1,2&http_type=1,2&result_format=json')->getBody()->getContents();
         $proxy = json_decode($proxy, true);
+
+        foreach ($proxy['result'] as $key => $item) {
+            try {
+                $guzzle->request('GET', 'http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/000911.phtml?year=2018&jidu=2', ['proxy' => $item['ip:port'], 'timeout' => 1, 'allow_redirects' => false]);
+            } catch (\Exception $exception) {
+                unset($proxy['result'][$key]);
+            } catch (GuzzleException $e) {
+                unset($proxy['result'][$key]);
+            }
+        }
+
+        sort($proxy['result']);
 
         $data = [
             'date' => date('Y-m-d'),
@@ -107,13 +124,21 @@ class Daily
     private function getHtml($url)
     {
         if ($this->counter > 5) {
-            return '';
+            return 'invalid';
         }
         $guzzle = new Client();
+        $pQuery = new QueryList();
         try {
+            echo "\n" . $this->counter;
             $this->counter++;
-            return $guzzle->request('GET', $url, ['proxy' => $this->getProxy()])->getBody()->getContents();
+            $html = $guzzle->request('GET', $url, ['proxy' => $this->getProxy(), 'timeout' => 3, 'allow_redirects' => false])->getBody()->getContents();
+            if (!empty($html) || $pQuery->html(\phpQuery::newDocument($html))->find('#FundHoldSharesTable')) {
+                return $html;
+            } else {
+                return $this->getHtml($url);
+            }
         } catch (GuzzleException $e) {
+            $this->test = true;
             return $this->getHtml($url);
         }
 
@@ -123,25 +148,34 @@ class Daily
     public function single($url)
     {
         $pQuery = new QueryList();
-        $guzzle = new Client();
         $rules = [
             'quarter' => ['#FundHoldSharesTable', 'html', '', function ($match) {
-                try {
-                    $query = QueryList::getInstance()->html($match);
+                    $query = QueryList::getInstance()->html(\phpQuery::newDocument($match));
                     $data = $query->find('div')->texts()->toArray();
                     $query->destruct();
-                } catch (Exception $exception) {
+                if ($data) {
+                    array_splice($data, 0, 7);
+                    return $data;
+                } else {
                     return [];
                 }
-                array_splice($data, 0, 7);
-                return $data;
             }],
         ];
 
         try {
             $this->counter = 0;
             $html = $this->getHtml($url);
-            $data = $pQuery->html($html)->rules($rules)->query()->getData()->toArray();
+
+            if ('invalid' === $html) {
+                echo 'invalid';
+                return $html;
+            }
+
+            if ($this->test) {
+                $this->test = false;
+            }
+            $html = $pQuery->html(\phpQuery::newDocument($html));
+            $data = $html->rules($rules)->query()->getData()->toArray();
             $pQuery->destruct();
         } catch (Exception $exception) {
             $data = [];
@@ -226,13 +260,42 @@ class Daily
                 }
             }
 
+            $invalid = json_decode(file_get_contents('invalid'), true);
+            if (in_array($item, $invalid)) {
+                continue;
+            }
+
             $url = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/{$item}.phtml?year={$year}&jidu={$season}";
             $data = $this->single($url);
+
+            if ('invalid' === $data) {
+                $invalid = json_decode(file_get_contents('invalid'), true);
+                $invalid[] = $item;
+                file_put_contents('invalid', json_encode($invalid));
+                continue;
+            }
 
             if ($data) {
                 $data = array_chunk($data, 7);
                 asort($data);
-                $value = array_pop($data);
+//                $value = array_pop($data);
+
+                foreach ($data as $oneItem) {
+                    if (date('md', strtotime($oneItem[0])) == $crawlerCycle['year']) {
+                        $value = $oneItem;
+                        break;
+                    }
+                }
+
+                if (empty($value)) {
+                    //获取了数据却没有当日数据的应为停牌
+                    $done[] = $item;
+                    $ephemeral = [
+                        'ephemeral_data' => json_encode($done)
+                    ];
+                    StockCrawlerCycle::query()->where(['id' => $crawlerCycleId])->update($ephemeral);
+                    continue;
+                }
 
                 $data = [
                     'stock_code' => $item,
@@ -261,31 +324,3 @@ class Daily
         }
     }
 }
-
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-include_once 'vendor/autoload.php';
-
-
-new DatabaseManager();
-$phpQuery = new Daily();
-
-/**
- * @param $phpQuery Daily
- */
-function again($phpQuery){
-    try {
-        $phpQuery->pickUpStock();
-    } catch (Exception $exception) {
-        file_put_contents(__DIR__ . '/log', $exception, FILE_APPEND);
-        again($phpQuery);
-    }
-}
-again($phpQuery);
-
-
-
-
-
