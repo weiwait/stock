@@ -10,14 +10,19 @@
 include_once 'vendor/autoload.php';
 
 
-new db\DatabaseManager\DatabaseManager();
+//new db\DatabaseManager\DatabaseManager();
+//
+//$before = microtime(true);
+//
+//$db = new \Illuminate\Database\Capsule\Manager();
+//for ($i = 1; $i < 2000; $i++) {
+//    $db->table('stocks')->find($i);
+//}
+//
+//$after = microtime(true);
+//echo ($after - $before);
 
-$before = microtime(true);
+$t = getopt('t:');
+print_r($t);
 
-$db = new \Illuminate\Database\Capsule\Manager();
-for ($i = 1; $i < 2000; $i++) {
-    $db->table('stocks')->find($i);
-}
 
-$after = microtime(true);
-echo ($after - $before);

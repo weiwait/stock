@@ -10,20 +10,41 @@ namespace Weiwait;
 
 
 use db\StockMarket;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class Test
 {
     public function test($code)
     {
         ob_start();
-        $stocks = StockMarket::allRecordOfStock($code, 2017, 2018);
+        $stocks = StockMarket::allRecordOfStock($code, 2018, 2018);
 
         if (!$stocks) {
-            return 0;
+            return false;
+        }
+
+        $trend = $this->trend($stocks);
+
+        if (!$trend) {
+            return false;
         }
 
         $length = count($stocks);
         $day = 1;
+
+//        $openingPrice = $stocks[$length - $day]['opening_price'];
+
+        $currentTrading = $this->currentTrading($code);
+        if ($currentTrading) {
+            $openingPrice = $currentTrading[1];
+            if (!$openingPrice > 0) {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
         $yesterday = $stocks[$length - $day];
         $theDayBeforeYesterday = $stocks[$length - $day - 1];
         $yesterdayNum = $this->historyItems(array_slice($stocks, 0, $length - $day), $length - $day, $yesterday);
@@ -36,7 +57,7 @@ class Test
         $errors = $this->errorRate($stocks, $rate, $yesterdayNum);
         $errorRate = $errors[0];
         $errorAvg = $errors[1];
-        $yesterdayPrice = $stocks[$length - $day]['opening_price'] * $rate * $errorRate + $errorAvg;
+        $yesterdayPrice = $openingPrice * $rate * $errorRate + $errorAvg;
 
         echo "上一日最低价<br>";
         echo $yesterdayPrice;
@@ -48,7 +69,7 @@ class Test
         $errors = $this->errorRate($stocks, $rate, $theDayBeforeYesterdayNum);
         $errorRate = $errors[0];
         $errorAvg = $errors[1];
-        $theDayBeforeYesterdayPrice = $stocks[$length - $day]['opening_price'] * $rate * $errorRate + $errorAvg;
+        $theDayBeforeYesterdayPrice = $openingPrice * $rate * $errorRate + $errorAvg;
 
         echo "前两天最低价<br>";
         echo $theDayBeforeYesterdayPrice;
@@ -59,7 +80,7 @@ class Test
         $errors = $this->errorRate($stocks, $rate, $length);
         $errorRate = $errors[0];
         $errorAvg = $errors[1];
-        $allDaysPrice = $stocks[$length - $day]['opening_price'] * $rate * $errorRate + $errorAvg;
+        $allDaysPrice = $openingPrice * $rate * $errorRate + $errorAvg;
 
         echo "总最低价<br>";
         echo $allDaysPrice;
@@ -72,7 +93,7 @@ class Test
             $errors = $this->errorRate($stocks, $rate, $j);
             $errorRate = $errors[0];
             $errorAvg = $errors[1];
-            $sum10 += $stocks[$length - $day]['opening_price'] * $rate * $errorRate + $errorAvg;
+            $sum10 += $openingPrice * $rate * $errorRate + $errorAvg;
         }
 
         $sum = $sum10 + $yesterdayPrice + $theDayBeforeYesterdayPrice + $allDaysPrice;
@@ -91,7 +112,7 @@ class Test
         $maxErrors = $this->maxErrorRate($stocks, $rate, $yesterdayNum);
         $maxErrorRate = $maxErrors[0];
         $maxErrorAvg = $maxErrors[1];
-        $maxYesterdayPrice = $stocks[$length - $day]['opening_price'] * $maxRate * $maxErrorRate + $maxErrorAvg;
+        $maxYesterdayPrice = $openingPrice * $maxRate * $maxErrorRate + $maxErrorAvg;
 
         echo "上一日最高价<br>";
         echo $maxYesterdayPrice;
@@ -103,7 +124,7 @@ class Test
         $maxErrors = $this->maxErrorRate($stocks, $maxRate, $theDayBeforeYesterdayNum);
         $maxErrorRate = $maxErrors[0];
         $maxErrorAvg = $maxErrors[1];
-        $maxTheDayBeforeYesterdayPrice = $stocks[$length - $day]['opening_price'] * $maxRate * $maxErrorRate + $maxErrorAvg;
+        $maxTheDayBeforeYesterdayPrice = $openingPrice * $maxRate * $maxErrorRate + $maxErrorAvg;
 
         echo "前两天最高价<br>";
         echo $maxTheDayBeforeYesterdayPrice;
@@ -114,7 +135,7 @@ class Test
         $maxErrors = $this->maxErrorRate($stocks, $maxRate, $length);
         $maxErrorRate = $maxErrors[0];
         $maxErrorAvg = $maxErrors[1];
-        $maxAllDaysPrice = $stocks[$length - $day]['opening_price'] * $maxRate * $maxErrorRate + $maxErrorAvg;
+        $maxAllDaysPrice = $openingPrice * $maxRate * $maxErrorRate + $maxErrorAvg;
 
         echo "总最高价<br>";
         echo $maxAllDaysPrice;
@@ -127,7 +148,7 @@ class Test
             $maxErrors = $this->maxErrorRate($stocks, $maxRate, $j);
             $maxErrorRate = $maxErrors[0];
             $maxErrorAvg = $maxErrors[1];
-            $maxSum10 += $stocks[$length - $day]['opening_price'] * $maxRate * $maxErrorRate + $maxErrorAvg;
+            $maxSum10 += $openingPrice * $maxRate * $maxErrorRate + $maxErrorAvg;
         }
 
         $sum = $maxSum10 + $maxYesterdayPrice + $maxTheDayBeforeYesterdayPrice + $maxAllDaysPrice;
@@ -158,9 +179,34 @@ class Test
         echo "<br>";
         echo "盈利率<br>";
         echo $profit / 100 . "%";
+
+        $maxPredictedValue -= $maxPredictedValue * 0.03;
+
+//        if ($maxPredictedValue < $stocks[$length - $day]['maximum_price']) {
+//            $max = 1;
+//        } else {
+//            $max = 0;
+//        }
+//
+        $predictedValue += $predictedValue * 0.02;
+//
+//        if ($predictedValue > $stocks[$length - $day]['minimum_price']) {
+//            $min = 1;
+//        } else {
+//            $min = 0;
+//        }
+
+        $profit2 = (10000 / $predictedValue) * ($maxPredictedValue - $predictedValue);
+//        $profit3 = (10000 / $stocks[$length - $day]['minimum_price']) * ($stocks[$length - $day]['maximum_price'] - $stocks[$length - $day]['minimum_price']);
+
         ob_clean();
         ob_end_clean();
-        return $profit;
+        echo "{$code}\n";
+        if ($profit2 > 100 && $openingPrice > $predictedValue) {
+            return ['code' => $code, 'profit' => $profit, 'profit2' => $profit2, 'predicted_value' => $predictedValue, 'opening_price' => $openingPrice, 'max_predicted_value' => $maxPredictedValue];
+        } else {
+            return false;
+        }
     }
 
 
@@ -279,5 +325,54 @@ class Test
         return $num;
     }
 
-    //
+    //取近4天走势
+    public function trend($stocks)
+    {
+        $count = count($stocks);
+        $perfect = true;
+        $desirable = true;
+        for ($i = 1; $i < 5; $i++) {
+            if (!$stocks[$count - $i]['maximum_price'] > $stocks[$count - 1 - $i]['maximum_price']) {
+                $perfect = false;
+            }
+
+            if (!$stocks[$count - $i]['maximum_price'] > $stocks[$count - 2 - $i]['maximum_price']) {
+                $desirable = false;
+            }
+        }
+
+        if ($desirable) {
+            if ($perfect) {
+                return 'perfect';
+            } else {
+                return 'desirable';
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static function currentTrading($stockCode)
+    {
+        $client = new Client();
+        try {
+            $result = $client->request('GET', "http://hq.sinajs.cn/list=sz{$stockCode}");
+        } catch (GuzzleException $e) {
+            return false;
+        }
+        $code = $result->getStatusCode();
+        if (200 == $code) {
+            $data = $result->getBody();
+            $data = mb_convert_encoding($data, 'UTF-8', 'GBK');
+            $data = explode('"', $data);
+            $data = explode(',', $data[1]);
+            foreach ($data as $key => $value) {
+                if ($key > 9 && $key < 30 && $key % 2 == 0) {
+                    $data[$key] = substr($value, 0, -2);
+                }
+            }
+            return $data;
+        }
+        return false;
+    }
 }
