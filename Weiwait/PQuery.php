@@ -13,6 +13,7 @@ use db\DatabaseManager\DatabaseManager;
 use db\Stock;
 use db\StockCrawlerCycle;
 use db\StockMarket;
+use db\StockSz;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -212,7 +213,8 @@ class PQuery
         $year = 2018;
         $season = ceil((date('n'))/3);
 
-        $stockCodes = Stock::query()->select(['code'])->get()->toArray();
+//        $stockCodes = Stock::query()->select(['code'])->get()->toArray();
+        $stockCodes = StockSz::query()->select(['code'])->get()->toArray();
         $stockCodes = array_column($stockCodes, 'code');
 //        $codes = StockMarket::query()->select(['stock_code'])->get()->toArray();
 //        $codes = array_column($codes, 'stock_code');
@@ -255,9 +257,9 @@ class PQuery
                         ];
                     }
 //                    $result = StockMarket::query()->insert($data);
-                    $result = Manager::table("stock_markets_{$year}")->insert($data);
+                    $result = Manager::table("stock_markets_{$year}_2")->insert($data);
                     if (!$result) {
-                        file_put_contents(__DIR__ . '/insert', "code: {$item}, quarter: {$i}\r", FILE_APPEND);
+                        file_put_contents(__DIR__ . '/', "code: {$item}, quarter: {$i}\r", FILE_APPEND);
                     }
                 } else {
                     if (file_exists(__DIR__ . '/empty')) {
