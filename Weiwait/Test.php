@@ -352,6 +352,7 @@ class Test
         }
     }
 
+    //当天当时股票信息
     public static function currentTrading($stockCode)
     {
         $client = new Client();

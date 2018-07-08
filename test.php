@@ -23,6 +23,10 @@ include_once 'vendor/autoload.php';
 //echo ($after - $before);
 
 $t = getopt('t:');
+if (empty($t)) {
+    $t = 'hello world';
+}
 print_r($t);
+
 
 
