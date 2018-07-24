@@ -51,14 +51,14 @@ class Daily
         $month = date('m');
         $season = ceil((date('n'))/3);
 
-        $stockCodes = StockSz::query()->select(['code'])->get()->toArray();
-        $stockCodes = array_column($stockCodes, 'code');
+        $stockCodes = Stock::query()->select(['prefix_code'])->get()->toArray();
+        $stockCodes = array_column($stockCodes, 'prefix_code');
 
         $crawlerCycle = StockCrawlerCycle::query()->where(['year' => date('md')])->get()->toArray();
         if (empty($crawlerCycle)) {
             $crawlerCycleId = StockCrawlerCycle::query()->insertGetId(['year' => date('md')]);
         } else {
-            $crawlerCycleId = $crawlerCycle['id'];
+            $crawlerCycleId = $crawlerCycle[0]['id'];
         }
 
         $done = [];
@@ -91,9 +91,9 @@ class Daily
                 continue;
             }
 
-            if ($data[30] == date('Y-m-d') && $data[1] != 0) {
+            if ($data[1] != 0) {
                 $save = [
-                    'stock_code' => $item,
+                    'stock_code' => substr($item, 2, 6),
                     'year' => $year,
                     'quarter' => $season,
                     'date' => $data[30],
@@ -105,7 +105,7 @@ class Daily
                     'transaction_amount' => $data[9],
                 ];
 
-                Manager::table("stock_markets_{$year}_2")->insert($save);
+                Manager::table("stock_markets_{$year}_3")->insert($save);
             }
             $done[] = $item;
             $ephemeral = [
@@ -120,7 +120,7 @@ class Daily
     {
         $client = new Client();
         try {
-            $result = $client->request('GET', "http://hq.sinajs.cn/list=sz{$stockCode}");
+            $result = $client->request('GET', "http://hq.sinajs.cn/list={$stockCode}");
         } catch (GuzzleException $e) {
             return false;
         }

@@ -20,7 +20,7 @@ use QL\Ext\CurlMulti;
 use QL\QueryList;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
-class Daily
+class Daily123
 {
     private $response = '';
     private $urls = [];

@@ -9,6 +9,8 @@
 namespace Weiwait;
 
 
+use db\Checked;
+use db\Stock;
 use db\StockMarket;
 use db\StockSz;
 use GuzzleHttp\Client;
@@ -17,20 +19,21 @@ use Illuminate\Database\Capsule\Manager;
 
 class Analyze
 {
-    public function index($code)
+    public function index($code, $prefixCode)
     {
 //        $stocks = StockMarket::allRecordOfStock($code, 2018, 2018);
-        $stocks = Manager::table('stock_markets_2018_2')->where(['stock_code' => $code])->orderBy('date', 'asc')->get()->map(function ($v) {
+        $stocks = Manager::table('stock_markets_2018_3')->where(['stock_code' => $code])->orderBy('date', 'asc')->get()->map(function ($v) {
             return (array) $v;
         })->toArray();
         if (empty($stocks)) {
-            StockSz::query()->where(['code' => $code])->delete();
+            Stock::query()->where(['code' => $code])->delete();
             return false;
         }
-        if (count($stocks) < Manager::table('stock_markets_2018_2')->where(['stock_code' => '000001'])->count('*')) {
-            StockSz::query()->where(['code' => $code])->delete();
-            return false;
-        }
+//        if (count($stocks) < Manager::table('stock_markets_2018_2')->where(['stock_code' => '000001'])->count('*')) {
+//            StockSz::query()->where(['code' => $code])->delete();
+//            return false;
+//        }
+
 
         $t = 0;
         $f = 0;
@@ -40,7 +43,7 @@ class Analyze
         unset($stocks[0]);
         foreach ($stocks as $item) {
             if ($item['maximum_price'] > $min) {
-                if ((10000 / $min) * ($item['maximum_price'] - $min) > 200) {
+                if ((10000 / $min) * ($item['maximum_price'] - $min) > 500) {
                     $y++;
                 } else {
                     $n++;
@@ -51,13 +54,13 @@ class Analyze
             }
             $min = $item['minimum_price'];
         }
-        return ['符合' => $t, '不符合' => $f, '总数' => count($stocks), '安全' => $y, '危险' => $n, 'code' => $code];
+        return ['符合' => $t, '不符合' => $f, '总数' => count($stocks), '安全' => $y, '危险' => $n, 'code' => $code, 'prefix_code' => $prefixCode];
     }
 
     public function filterOfTrendOfOpeningPrice($data)
     {
         foreach ($data as $key => $item) {
-            $records = Manager::table('stock_markets_2018_2')->where(['stock_code' => $item['code']])->orderBy('date', 'desc')->take(3)->get()->map(function ($v) {
+            $records = Manager::table('stock_markets_2018_3')->where(['stock_code' => $item['code']])->orderBy('date', 'desc')->take(3)->get()->map(function ($v) {
                 return (array) $v;
             })->toArray();
             if ($records[0]['closing_price'] > $records[0]['opening_price'] && $records[1]['closing_price'] > $records[1]['opening_price']) {
@@ -77,25 +80,30 @@ class Analyze
 
     public function preOrder($data)
     {
-        $pre = [];
         foreach ($data as $key => $item) {
-            $records = Manager::table('stock_markets_2018_2')->where(['stock_code' => $item['code']])->orderBy('date', 'desc')->take(3)->get()->map(function ($v) {
+            $records = Manager::table('stock_markets_2018_3')->where(['stock_code' => $item['code']])->orderBy('date', 'desc')->take(3)->get()->map(function ($v) {
             return (array) $v;
         })->toArray();
-            $openingPrice = self::currentTrading($item['code']);
-            $min = $records[1]['minimum_price'] / $records[1]['opening_price'] * $openingPrice;
-            $min += ($openingPrice - $min) * 0.2;
-            $max = $records[1]['maximum_price'] / $records[1]['opening_price'] * $openingPrice;
-            $max -= ($max - $openingPrice) * 0.35;
+            $openingPrice = intval(self::currentTrading($item['prefix_code']));
+            if (!$openingPrice > 0) {
+                continue;
+            }
+            $min = $records[0]['minimum_price'] / $records[0]['opening_price'] * $openingPrice;
+            $min -= ($openingPrice - $min) * 0.5;
+            $max = $records[0]['maximum_price'] / $records[0]['opening_price'] * $openingPrice;
+            $max -= ($max - $openingPrice) * 0.5;
 //            echo $openingPrice . "\n" . $min . "\n" . $max . "\n";
-            $pre[] = [
+            $pre = [
+                'date' => date('Y-m-d'),
                 'code' => $item['code'],
-                'min' => round($min, 2),
-                'max' => round($max, 2),
+                'prefix_code' => $item['prefix_code'],
+                'predicted_value' => round($min, 2),
+                'opening_price' => $openingPrice,
+                'max_predicted_value' => round($max, 2),
                 'profit' => (10000 / $min) * ($max - $min)
             ];
+            Checked::query()->insert($pre);
         }
-        return $pre;
     }
 
     public function check($pre)
@@ -121,14 +129,14 @@ class Analyze
 //            return (array) $v;
 //        })->toArray();
 //
-//        return $records[0]['opening_price'];
+//        return $records[1]['opening_price'];
 
 
-
+//http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz000001&scale=5&ma=5&datalen=1023
 
         $client = new Client();
         try {
-            $result = $client->request('GET', "http://hq.sinajs.cn/list=sz{$stockCode}");
+            $result = $client->request('GET', "http://hq.sinajs.cn/list={$stockCode}");
         } catch (GuzzleException $e) {
             return false;
         }

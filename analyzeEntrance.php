@@ -33,9 +33,9 @@ $analyze = new \Weiwait\Analyze();
 $data = [];
 
 if (!$hasData) {
-    $stocks = \db\StockSz::all()->toArray();
+    $stocks = \db\Stock::all()->toArray();
     foreach ($stocks as $key => $stock) {
-        $tmp = $analyze->index($stock['code']);
+        $tmp = $analyze->index($stock['code'], $stock['prefix_code']);
         if ($tmp) {
             $data[] = $tmp;
         }
@@ -53,19 +53,21 @@ if (!$hasData) {
     $data = array_chunk($data, count($data) / 2)[0];
 
     file_put_contents('first-filtered', json_encode($data));
+
+
+    $data = $analyze->filterOfTrendOfOpeningPrice($data);
+    file_put_contents('filter-of-trend-opening-price', json_encode($data));
 } else {
-    $data = file_get_contents('first-filtered');
+    $data = file_get_contents('filter-of-trend-opening-price');
     $data = json_decode($data, true);
 }
-
-$data = $analyze->filterOfTrendOfOpeningPrice($data);
-file_put_contents('filter-of-trend-opening-price', json_encode($data));
-
 
 //$data = file_get_contents('filter-of-trend-opening-price');
 //$data = json_decode($data, true);
 
-$pre = $analyze->preOrder($data);
+//echo count($data);
+
+$analyze->preOrder($data);
 
 //$analyze->check($pre);
 

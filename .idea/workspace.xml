@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc72e35b-b42b-4d08-b631-516a669da814" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Weiwait/Analyze.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testEntrance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Weiwait/Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/Weiwait/Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analyzeEntrance.php" beforeDir="false" afterPath="$PROJECT_DIR$/analyzeEntrance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bought.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dashboard.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getRecords.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/preorder.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stockPanel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/资金流入" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weiwait/log" afterPath="$PROJECT_DIR$/Weiwait/log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/queryList.iml" afterPath="$PROJECT_DIR$/.idea/queryList.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weiwait/Analyze.php" afterPath="$PROJECT_DIR$/Weiwait/Analyze.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weiwait/Daily.php" afterPath="$PROJECT_DIR$/Weiwait/Daily.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weiwait/Daily123.php" afterPath="$PROJECT_DIR$/Weiwait/Daily123.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weiwait/PQuery.php" afterPath="$PROJECT_DIR$/Weiwait/PQuery.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/analyzeEntrance.php" afterPath="$PROJECT_DIR$/analyzeEntrance.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/invalid" afterPath="$PROJECT_DIR$/invalid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log" afterPath="$PROJECT_DIR$/log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy" afterPath="$PROJECT_DIR$/proxy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,11 +36,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="analyzeEntrance.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="analyzeEntrance.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/analyzeEntrance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="58" column="1" lean-forward="true" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+            <state relative-caret-position="2205">
+              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preorder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/preorder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1155">
+              <caret line="39" column="110" lean-forward="false" selection-start-line="39" selection-start-column="110" selection-end-line="39" selection-end-column="110" />
+              <folding>
+                <element signature="e#90#105#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,82 +61,63 @@
       <file leaf-file-name="Analyze.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Weiwait/Analyze.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="92" column="40" lean-forward="true" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
+            <state relative-caret-position="0">
+              <caret line="45" column="72" lean-forward="false" selection-start-line="45" selection-start-column="72" selection-end-line="45" selection-end-column="72" />
               <folding>
-                <element signature="e#110#129#0#PHP" expanded="true" />
-                <element signature="e#3435#4209#0#PHP" />
+                <element signature="e#110#125#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="first-filtered" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/first-filtered">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testEntrance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testEntrance.php">
+      <file leaf-file-name="stockPanel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stockPanel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-495" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockMarket.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/StockMarket.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="26" column="100" selection-start-line="26" selection-start-column="100" selection-end-line="26" selection-end-column="142" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weiwait/Test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1782">
-              <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            <state relative-caret-position="980">
+              <caret line="34" column="44" lean-forward="false" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
               <folding>
-                <element signature="e#111#130#0#PHP" expanded="true" />
-                <element signature="e#6872#7197#0#PHP" />
-                <element signature="e#7233#7731#0#PHP" />
-                <element signature="e#7761#8310#0#PHP" />
-                <element signature="e#8339#8664#0#PHP" />
-                <element signature="e#8700#9201#0#PHP" />
-                <element signature="e#9231#9783#0#PHP" />
+                <element signature="e#352#367#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Daily.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bought.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bought.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="455">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Daily.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Weiwait/Daily.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="99" column="44" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="44" />
+            <state relative-caret-position="-1260">
+              <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PQuery.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weiwait/PQuery.php">
+      <file leaf-file-name="dailyEntrance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dailyEntrance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="239" column="131" selection-start-line="239" selection-start-column="24" selection-end-line="239" selection-end-column="131" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockSz.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/StockSz.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="210">
+              <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,15 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/db/Stock.php" />
-        <option value="$PROJECT_DIR$/db/StockMarkets.php" />
-        <option value="$PROJECT_DIR$/db/migrations/20180117020634_stock_crawler_cycle_migration.php" />
-        <option value="$PROJECT_DIR$/db/StockCrawlerCycle.php" />
-        <option value="$PROJECT_DIR$/vendor/jaeger/g-http/src/GHttp.php" />
-        <option value="$PROJECT_DIR$/db/migrations/20180116092636_stock_market_migration.php" />
-        <option value="$PROJECT_DIR$/Rule.md" />
-        <option value="$PROJECT_DIR$/vendor/illuminate/database/Eloquent/Model.php" />
-        <option value="$PROJECT_DIR$/weiwait/PQuery.php" />
         <option value="$PROJECT_DIR$/weiwait/HighOpen.php" />
         <option value="$PROJECT_DIR$/Weiwait/HighOpen.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -171,7 +170,6 @@
         <option value="$PROJECT_DIR$/daily.php" />
         <option value="$PROJECT_DIR$/dailyEntrance.php" />
         <option value="$PROJECT_DIR$/invalid" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/html" />
         <option value="$PROJECT_DIR$/log" />
         <option value="$PROJECT_DIR$/proxy" />
@@ -191,17 +189,27 @@
         <option value="$PROJECT_DIR$/db/Checked.php" />
         <option value="$PROJECT_DIR$/verification.php" />
         <option value="$PROJECT_DIR$/../run - 副本.bat" />
-        <option value="$PROJECT_DIR$/Weiwait/PQuery.php" />
         <option value="$PROJECT_DIR$/../php-7.2.7-nts-Win32-VC15-x64/php.ini" />
         <option value="$PROJECT_DIR$/Weiwait/Daily2.php" />
-        <option value="$PROJECT_DIR$/Weiwait/Daily.php" />
         <option value="C:/Program Files/Git/etc/ssh/sshd_config" />
         <option value="C:/Program Files/Git/etc/ssh/ssh_config" />
         <option value="$PROJECT_DIR$/Weiwait/Test.php" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/filter-of-trend-opening-price" />
-        <option value="$PROJECT_DIR$/Weiwait/Analyze.php" />
+        <option value="$PROJECT_DIR$/dashboard.html" />
+        <option value="$PROJECT_DIR$/../hosts" />
+        <option value="$PROJECT_DIR$/Weiwait/Daily123.php" />
+        <option value="$PROJECT_DIR$/bought.php" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/资金流入" />
+        <option value="$PROJECT_DIR$/stockPanel.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/Weiwait/log" />
+        <option value="$PROJECT_DIR$/Weiwait/PQuery.php" />
+        <option value="$PROJECT_DIR$/Weiwait/Daily.php" />
         <option value="$PROJECT_DIR$/analyzeEntrance.php" />
+        <option value="$PROJECT_DIR$/preorder.php" />
+        <option value="$PROJECT_DIR$/Weiwait/Analyze.php" />
       </list>
     </option>
   </component>
@@ -214,7 +222,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/vendor/symfony/config" />
@@ -245,52 +253,58 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="734" />
     <option name="height" value="867" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
       <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="stock" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stock" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stock" type="462c0819:PsiDirectoryNode" />
-              <item name="Weiwait" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\weiwait\Desktop\stock\Weiwait" />
-      <recent name="C:\Users\weiwait\Desktop\queryList" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\all\Desktop\stock" />
       <recent name="C:\Users\weiwait\Desktop\stock" />
       <recent name="C:\Users\weiwait\Desktop\stock\Weiwait" />
       <recent name="C:\Users\weiwait\Desktop\stock\db" />
       <recent name="C:\Users\weiwait\Desktop\queryList\db" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\weiwait\Desktop\stock\Weiwait" />
+      <recent name="C:\Users\weiwait\Desktop\queryList" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -305,19 +319,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Script.analyzeEntrance.php">
-    <configuration name="index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/queryList/index.php" />
+  <component name="RunManager">
     <configuration name="analyzeEntrance.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/analyzeEntrance.php" />
-    <list>
-      <item itemvalue="JavaScript Debug.index.php" />
-      <item itemvalue="PHP Script.analyzeEntrance.php" />
+    <configuration name="index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/queryList/index.php" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.analyzeEntrance.php" />
     </list>
     <recent_temporary>
-      <list>
-        <item itemvalue="PHP Script.analyzeEntrance.php" />
-        <item itemvalue="JavaScript Debug.index.php" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.analyzeEntrance.php" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -372,12 +389,34 @@
       <workItem from="1530810758498" duration="6339000" />
       <workItem from="1530869825224" duration="14697000" />
       <workItem from="1530979612543" duration="2793000" />
-      <workItem from="1531061447288" duration="14024000" />
+      <workItem from="1531061447288" duration="15063000" />
+      <workItem from="1531115315174" duration="6998000" />
+      <workItem from="1531124148499" duration="373000" />
+      <workItem from="1531124538482" duration="2188000" />
+      <workItem from="1531206391860" duration="8861000" />
+      <workItem from="1531192657231" duration="9205000" />
+      <workItem from="1531271771091" duration="3982000" />
+      <workItem from="1531320848811" duration="317000" />
+      <workItem from="1531321185851" duration="10543000" />
+      <workItem from="1531408687533" duration="15673000" />
+      <workItem from="1531679076414" duration="1133000" />
+      <workItem from="1531703233444" duration="3209000" />
+      <workItem from="1531802256236" duration="2143000" />
+      <workItem from="1531846158158" duration="1826000" />
+      <workItem from="1531876802537" duration="2752000" />
+      <workItem from="1531928860438" duration="7456000" />
+      <workItem from="1531968178537" duration="4417000" />
+      <workItem from="1532021720092" duration="1274000" />
+      <workItem from="1532099485613" duration="2488000" />
+      <workItem from="1532352562967" duration="1493000" />
+      <workItem from="1532399561717" duration="455000" />
+      <workItem from="1532410660393" duration="737000" />
+      <workItem from="1532453121355" duration="1224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324699000" />
+    <option name="totallyTimeSpent" value="414485000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -390,28 +429,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16151386" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5035261" side_tool="true" weight="0.3514247" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32884097" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4964739" weight="0.45969498" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39864865" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="PHP-CGI Server" order="7" weight="0.32972974" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32884097" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.057569295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19586506" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Translate" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29815015" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,30 +460,9 @@
     <breakpoint-manager>
       <option name="time" value="4" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/exception.php" />
-    <entry file="file://$PROJECT_DIR$/Weiwait/where">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="344" lean-forward="true" selection-start-line="344" selection-end-line="344" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../batch/push.bat" />
-    <entry file="file://$PROJECT_DIR$/filtrate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analyzeEntrance2.php" />
-    <entry file="file://$PROJECT_DIR$/analyzeEntrance3.php" />
-    <entry file="file://$PROJECT_DIR$/analyzeEntrance4.php" />
-    <entry file="file://$PROJECT_DIR$/analyzeEntrance6.php" />
-    <entry file="file://$PROJECT_DIR$/analyzeEntrance7.php" />
-    <entry file="file://$PROJECT_DIR$/analyzeEntrance8.php" />
     <entry file="file://$PROJECT_DIR$/analyzeEntrance9.php" />
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -458,36 +473,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/analyzeEntrance5.php" />
     <entry file="file://$PROJECT_DIR$/analyzeEntrance1.php" />
-    <entry file="file://$PROJECT_DIR$/db/migrations/20180116072817_stock_migration.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/DatabaseManager/DatabaseManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phinx.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="14" />
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/bin/phinx" />
     <entry file="file://$PROJECT_DIR$/../php_environment/php.ini" />
     <entry file="file://$PROJECT_DIR$/../laravel/weiwait/artisan" />
-    <entry file="file://$PROJECT_DIR$/db/migrations/20180117020634_stock_crawler_cycle_migration.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/Stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/Checked.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -501,36 +503,23 @@
     <entry file="file://$PROJECT_DIR$/verification.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+          <caret line="25" column="39" lean-forward="false" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../run - 副本.bat" />
     <entry file="file://$PROJECT_DIR$/invalid">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../php-7.2.7-nts-Win32-VC15-x64/php.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="1920" lean-forward="true" selection-start-line="1920" selection-end-line="1920" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../php-7.2.7-nts-Win32-VC15-x64/php.ini" />
     <entry file="file://$PROJECT_DIR$/proxy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
-          <caret column="4195" selection-start-column="4195" selection-end-column="4195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weiwait/Daily123.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="868">
-          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+          <caret line="0" column="4195" lean-forward="false" selection-start-line="0" selection-start-column="4195" selection-end-line="0" selection-end-column="4195" />
         </state>
       </provider>
     </entry>
@@ -542,13 +531,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Weiwait/empty" />
-    <entry file="file://$PROJECT_DIR$/dailyEntrance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files/Git/etc/ssh/sshd_config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
@@ -556,48 +538,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files/Git/etc/ssh/ssh_config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/StockSz.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/StockMarket.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
-          <caret line="26" column="100" selection-start-line="26" selection-start-column="100" selection-end-line="26" selection-end-column="142" />
+          <caret line="26" column="100" lean-forward="false" selection-start-line="26" selection-start-column="100" selection-end-line="26" selection-end-column="142" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="8" selection-start-line="8" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test" />
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_3.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -605,66 +560,205 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testEntrance.php">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/first-filtered">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/filter-of-trend-opening-price">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret column="2321" selection-start-column="2321" selection-end-column="2321" />
+        <state relative-caret-position="685">
+          <caret line="5585" column="4" lean-forward="false" selection-start-line="5585" selection-start-column="4" selection-end-line="5585" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Weiwait/PQuery.php">
+    <entry file="file://$PROJECT_DIR$/../hosts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Git/etc/ssh/ssh_config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weiwait/Daily123.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="60" lean-forward="true" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="239" column="131" selection-start-line="239" selection-start-column="24" selection-end-line="239" selection-end-column="131" />
+          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="20" column="83" lean-forward="false" selection-start-line="20" selection-start-column="83" selection-end-line="20" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/资金流入">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/illuminate/database/Eloquent/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="837" column="20" lean-forward="false" selection-start-line="837" selection-start-column="20" selection-end-line="837" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/Stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#91#113#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testEntrance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="904">
+          <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Weiwait/Test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1782">
-          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        <state relative-caret-position="12110">
+          <caret line="353" column="0" lean-forward="true" selection-start-line="353" selection-start-column="0" selection-end-line="377" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weiwait/log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getRecords.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weiwait/PQuery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1325">
+          <caret line="277" column="54" lean-forward="true" selection-start-line="277" selection-start-column="54" selection-end-line="277" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/first-filtered">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filter-of-trend-opening-price">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-525">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bought.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="551" column="9" lean-forward="false" selection-start-line="551" selection-start-column="9" selection-end-line="551" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stockPanel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="980">
+          <caret line="34" column="44" lean-forward="false" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
           <folding>
-            <element signature="e#111#130#0#PHP" expanded="true" />
-            <element signature="e#6872#7197#0#PHP" />
-            <element signature="e#7233#7731#0#PHP" />
-            <element signature="e#7761#8310#0#PHP" />
-            <element signature="e#8339#8664#0#PHP" />
-            <element signature="e#8700#9201#0#PHP" />
-            <element signature="e#9231#9783#0#PHP" />
+            <element signature="e#352#367#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Weiwait/Daily.php">
+    <entry file="file://$PROJECT_DIR$/preorder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="99" column="44" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weiwait/Analyze.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="92" column="40" lean-forward="true" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
+        <state relative-caret-position="1155">
+          <caret line="39" column="110" lean-forward="false" selection-start-line="39" selection-start-column="110" selection-end-line="39" selection-end-column="110" />
           <folding>
-            <element signature="e#110#129#0#PHP" expanded="true" />
-            <element signature="e#3435#4209#0#PHP" />
+            <element signature="e#90#105#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analyzeEntrance.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="58" column="1" lean-forward="true" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+        <state relative-caret-position="2205">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weiwait/Analyze.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="45" column="72" lean-forward="false" selection-start-line="45" selection-start-column="72" selection-end-line="45" selection-end-column="72" />
+          <folding>
+            <element signature="e#110#125#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyEntrance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weiwait/Daily.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1260">
+          <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
