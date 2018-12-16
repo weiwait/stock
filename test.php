@@ -45,33 +45,35 @@ new db\DatabaseManager\DatabaseManager();
 //    }
 //}
 
-$stocks = Manager::table('stocks_sz')->get()->toArray();
-foreach ($stocks as $item) {
-    \db\Stock::query()->insert(['name' => $item->name, 'code' => $item->code, 'prefix_code' => "sz{$item->code}"]);
-}
+//$stocks = Manager::table('stocks_sz')->get()->toArray();
+//foreach ($stocks as $item) {
+//    \db\Stock::query()->insert(['name' => $item->name, 'code' => $item->code, 'prefix_code' => "sz{$item->code}"]);
+//}
 
 
 
 //当天当时股票信息
-function currentTrading($stockCode)
+function currentTrading()
 {
     $client = new Client();
     try {
-        $result = $client->request('GET', "http://hq.sinajs.cn/list=sh{$stockCode}");
+        $result = $client->request('GET', "http://stock.gtimg.cn/data/index.php?appn=detail&action=data&c=sz002451&p=2");
     } catch (GuzzleException $e) {
         return false;
     }
     $code = $result->getStatusCode();
     if (200 == $code) {
         $data = $result->getBody();
-        $data = mb_convert_encoding($data, 'UTF-8', 'GBK');
-        $data = explode('"', $data);
-        $data = explode(',', $data[1]);
-        foreach ($data as $key => $value) {
-            if ($key > 9 && $key < 30 && $key % 2 == 0) {
-                $data[$key] = substr($value, 0, -2);
-            }
+        $data = explode('"', $data)[1];
+        $data = explode('|', $data);
+        $data2 = [];
+        foreach ($data as $item) {
+            $tmp = explode('/', $item);
+            $data2[] = [
+                'on_times' => $tmp[0],
+            ];
         }
+        echo $data;die;
         return $data;
     }
     return false;
@@ -79,3 +81,42 @@ function currentTrading($stockCode)
 
 
 //currentTrading();
+
+$records = Manager::table('stock_markets_2018_3')->where(['date' => '2018-07-27'])->get()->toArray();
+//echo count($records);
+foreach ($records as $key => $item) {
+    if ($item->opening_price > 6) {
+        unset($records[$key]);
+    }
+    if ($item->opening_price < 3) {
+        unset($records[$key]);
+    }
+}
+
+$y = 0;
+$n = 0;
+foreach ($records as $item) {
+    $records2 = Manager::table('stock_markets_2018_3')->where(['stock_code' => $item->stock_code])->orderBy('date', 'desc')->take(6)->get()->toArray();
+    foreach ($records2 as $key => $item2) {
+        if (!empty($records2[$key + 1])) {
+//            if ($item2->maximum_price - $records2[$key + 1]->minimum_price > 0) {
+//                echo (3000 / $records2[$key + 1]->minimum_price) * ($item2->maximum_price - $records2[$key + 1]->minimum_price)."\n";
+//            }
+            if ((3000 / $records2[$key + 1]->minimum_price) * ($item2->maximum_price - $records2[$key + 1]->minimum_price) > 300) {
+                if ($item2->opening_price > $records2[$key + 1]->closing_price) {
+                    $y++;
+                } else {
+                    $n++;
+                }
+            }
+        }
+    }
+//    echo "\n";
+}
+
+echo $y;
+echo "\n";
+echo $n;
+
+//echo count($records);
+//print_r($records);

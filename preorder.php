@@ -14,7 +14,7 @@ include_once 'vendor/autoload.php';
 
 new db\DatabaseManager\DatabaseManager();
 
-$pre = Checked::query()->where(["date" => date('Y-m-d')])->get()->toArray();
+$pre = Checked::query()->where(["date" => '2018-08-01'])->get()->toArray();
 
 //foreach ($pre as $item) {
 //    $a[] = $item['code'];
@@ -25,7 +25,7 @@ $pre = Checked::query()->where(["date" => date('Y-m-d')])->get()->toArray();
 //print_r($a);die;
 
 foreach ($pre as $key => $item) {
-    if ($item['opening_price'] < 2 || $item['opening_price'] > 13) {
+    if ($item['opening_price'] < 3 || $item['opening_price'] > 5) {
         unset($pre[$key]);
     }
 }
@@ -37,7 +37,7 @@ usort($pre, function ($first, $second) {
 //    return $first['opening_price'] <=> $second['opening_price'];
 //});
 
-$records = Manager::table('stock_markets_2018_3')->where(['date' => '2018-07-23'])->get()->map(function ($v) {
+$records = Manager::table('stock_markets_2018_3')->where(['date' => '2018-07-31'])->get()->map(function ($v) {
     return (array) $v;
 })->toArray();
 

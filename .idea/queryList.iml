@@ -17,8 +17,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jaeger/phpquery-single" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jaeger/querylist" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jaeger/querylist-curl-multi" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/markbaker/complex" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdr.net/php-curlmulti" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpoffice/phpspreadsheet" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
@@ -51,8 +53,10 @@
           <root url="file://$MODULE_DIR$/vendor/jaeger/phpquery-single" />
           <root url="file://$MODULE_DIR$/vendor/jaeger/querylist" />
           <root url="file://$MODULE_DIR$/vendor/jaeger/querylist-curl-multi" />
+          <root url="file://$MODULE_DIR$/vendor/markbaker/complex" />
           <root url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
           <root url="file://$MODULE_DIR$/vendor/phpdr.net/php-curlmulti" />
+          <root url="file://$MODULE_DIR$/vendor/phpoffice/phpspreadsheet" />
           <root url="file://$MODULE_DIR$/vendor/psr/container" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
           <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
@@ -80,8 +84,10 @@
           <root url="file://$MODULE_DIR$/vendor/jaeger/phpquery-single" />
           <root url="file://$MODULE_DIR$/vendor/jaeger/querylist" />
           <root url="file://$MODULE_DIR$/vendor/jaeger/querylist-curl-multi" />
+          <root url="file://$MODULE_DIR$/vendor/markbaker/complex" />
           <root url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
           <root url="file://$MODULE_DIR$/vendor/phpdr.net/php-curlmulti" />
+          <root url="file://$MODULE_DIR$/vendor/phpoffice/phpspreadsheet" />
           <root url="file://$MODULE_DIR$/vendor/psr/container" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
           <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />

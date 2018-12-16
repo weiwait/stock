@@ -18,7 +18,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $pre = Checked::query()->where(['code' => $_POST['code'], 'date' => '2018-07-16'])->first()->toArray();
+    $pre = Checked::query()->where(['code' => $_POST['code'], 'date' => '2018-08-01'])->first()->toArray();
     if (!empty($pre)) {
         $records = Manager::table('stock_markets_2018_2')->where(['stock_code' => $_POST['code'], 'date' => '2018-07-11'])->get()->map(function ($v) {
             return (array) $v;
